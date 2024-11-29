@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.css-zanzjh-MuiPaper-root-MuiAppBar-root {
+  background-color: #f1f5f9 !important;
+  position: fixed !important;
+}
+.css-1ygil4i-MuiToolbar-root {
+  padding-left: 35px !important;
+  padding-right: 38px !important;
+}
+.background-text {
+  width: 49%;
+  padding: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.css-18k2bs-MuiAvatar-root {
+  width: 170px;
+  height: 170px;
+  font-size: 6.25rem;
+}
+.book-slot {
+  border: 1px solid rgb(188, 192, 194) !important;
+}
+.modal-heading {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+.form-fields {
+  margin-bottom: 4%;
+  display: flex;
+  gap: 3%;
+}
+
+.css-1sdwht6-MuiPaper-root-MuiAppBar-root {
+  background-color: #f1f5f9 !important;
+}
+.MuiTypography-root.MuiTypography-h6.MuiTypography-noWrap.css-5lnhk4-MuiTypography-root {
+  color: black !important;
+}
+.css-1588512-MuiButtonBase-root-MuiButton-root {
+  color: #060606 !important;
+}
+.css-1ygil4i-MuiToolbar-root {
+  justify-content: space-between !important;
+}
+.header-email {
+  color: #060606;
+  padding-right: 15px;
+}
+.logout-button {
+  border: 1px solid black !important;
+}
+.css-1588512-MuiButtonBase-root-MuiButton-root {
+  border: 1px solid black !important;
+  padding: 2px 7px !important;
+}
+.css-1588512-MuiButtonBase-root-MuiButton-root:hover {
+  background-color: #0778f7;
+}
+.css-f2z2f9-MuiPaper-root-MuiAppBar-root {
+  background-color: #f1f5f9 !important;
+}
+.css-1sv74b4-MuiPaper-root-MuiAppBar-root {
+  background-color: #f1f5f9 !important;
+}
+.search-date {
+  height: 40px;
+  width: 170px;
+}
+.css-7mxpdy-MuiPaper-root-MuiAppBar-root {
+  background-color: #f1f5f9 !important;
+}
+.css-1rod9u0 {
+  background-color: #f1f5f9 !important;
+}
+.css-157ayuk {
+  background-color: #f1f5f9 !important;
+}
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-awgou1 {
+  justify-content: space-between !important;
+}
+.message {
+  margin-bottom: 4% !important;
+}
+.doctor-email {
+  margin: 4% 0 !important;
+}
+.redirect-home {
+  margin-right: 15px;
+  color: #060606;
+  text-decoration: underline;
+}
+.redirect-home:hover {
+  color: #0778f7;
+}
+.css-32fwiz-MuiButtonBase-root-MuiListItemButton-root {
+  gap: 10px !important;
+}
+.action-icon:hover {
+  background-color: #24b33c;
+  color: #f1f5f9 !important;
+}
+.cancel-icon:hover {
+  background-color: #ec4747;
+  color: #f1f5f9 !important;
+}
+.patient-descri:hover {
+  text-decoration: underline;
+  color: #2982e7;
+}
+.delete-icon {
+  display: flex;
+  margin: 8px 0px;
+  justify-content: center;
+  align-items: center;
+  width: 23%;
+  height: 35px;
+  color: rgb(231, 37, 37);
+  border: 1px solid rgb(231, 37, 37);
+  padding: 2px;
+}
+.delete-icon:hover {
+  background-color: rgb(231, 37, 37);
+  color: white;
+}
+.edit-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23%;
+  background-color: #ffffff;
+  height: 35px;
+  color: rgb(38, 133, 50);
+  margin: 8px 0px;
+  border: 1px solid rgb(38, 133, 50);
+}
+.edit-icon:hover {
+  background-color: rgb(38, 133, 50);
+  color: white;
+}
+.css-19kzrtu {
+  padding: 24px 0!important;
+}
+table,tr,th,td{
+  border: 1px solid rgb(168, 163, 163);
+}
+table{
+  text-align: center;
+  /* width: 100%; */
+}
+
+td{
+  height: 58px;
+}
+.iconbutton {
+  margin: 8px 0px;
+}
+.add-row{
+  text-transform: capitalize;
+  font-size: 16px;
+}
+.form-input {
+  padding: 20px;
+}
+
+.MuiDataGrid-cell.MuiDataGrid-cell--textLeft {
+  padding: 10px!important;
+}
+.headerName{
+  font-size: 20px;
+}
+.MuiDataGrid-row--borderBottom.css-yseucu-MuiDataGrid-columnHeaderRow {
+  font-size: 19px;
+}
+
+
+.edit-icon, .delete-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiDataGrid-cell {
+  display: flex;
+  align-items: center; /* Vertically aligns content */
+}
