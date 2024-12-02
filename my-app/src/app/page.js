@@ -48,9 +48,7 @@ const Home = () => {
     handleSubmit,
     setValue,
     reset,
-    formState: { errors },
   } = useForm({
-    resolver: yupResolver(PatientHistoryValidation),
     defaultValues: {
       studentId: studentId || "",
       fullName: "",
@@ -116,36 +114,36 @@ successMsg("Student record is deleted successfully")
     handleCloseDeleteModal();
   };
   
-  const handleSaveRow = (id, formData) => {
-    let isNew = false;
-  
-    setFormRows((prevRows) =>
-      prevRows.map((row) => {
-        if (row.id === id) {
-          if (row.isEditing) {
-            isNew = true; // Determine if the row is new (editing)
-          }
-          return {
-            ...row,
-            fullName: formData.fullName || row.fullName,
-            class: formData.class || row.class,
-            email: formData.email || row.email,
-            dob: formData.dob || row.dob,
-            gender: formData.gender || row.gender,
-            isEditing: false, // After saving, set editing to false
-          };
+ const handleSaveRow = (id, formData) => {
+  let isNew = false;
+
+  setFormRows((prevRows) =>
+    prevRows.map((row) => {
+      if (row.id === id) {
+        if (row.isEditing) {
+          isNew = true; // Determine if the row is new (editing)
         }
-        return row;
-      })
-    );
-  
-    if (isNew) {
-      successMsg("Student record is added successfully");
-    } else {
-      successMsg("Student record is updated successfully");
-    }
-  };
-  
+        return {
+          ...row,
+          fullName: formData[`fullName_${id}`] || row.fullName,
+            class: formData[`class_${id}`] || row.class,
+            email: formData[`email_${id}`] || row.email,
+            dob: formData[`dob_${id}`] || row.dob,
+            gender: formData[`gender_${id}`] || row.gender,
+            isEditing: false, // End editing for this row
+        };
+      }
+      return row;
+    })
+  );
+
+  if (isNew) {
+    successMsg("Student record is added successfully");
+  } else {
+    successMsg("Student record is updated successfully");
+  }
+};
+
 
   const handleEdit = (id) => {
     const updatedRows = [...formRows];
@@ -156,12 +154,12 @@ successMsg("Student record is deleted successfully")
       setFormRows(updatedRows);
 
       const currentRow = updatedRows[rowIndex];
-      setValue("fullName", currentRow.fullName);
-      setValue("email", currentRow.email);
-      setValue("class", currentRow.class);
-      setValue("gender", currentRow.gender);
-      setValue("dob", currentRow.dob);
-      setValue("id", currentRow.id);
+      setValue(`fullName_${id}`, currentRow.fullName);
+      setValue(`email_${id}`, currentRow.email);
+      setValue(`class_${id}`, currentRow.class);
+      setValue(`gender_${id}`, currentRow.gender);
+      setValue(`dob_${id}`, currentRow.dob);
+
     }
   };
 
@@ -174,23 +172,23 @@ successMsg("Student record is deleted successfully")
           params.row.id
     },
     {
-      className: "headerName",
       field: "fullName",
       headerName: "Full Name",
       width: 180,
       renderCell: (params) =>
         params.row.isEditing ? (
           <InputField
-            errors={errors}
+            // errors={errors}
             control={control}
             label="Full Name"
-            name={`fullName`}
+            name={`fullName_${params.row.id}`} // Make the name unique to the row
             className="custom-input"
           />
         ) : (
-          params.row.fullName||""
+          params.row.fullName || ""
         ),
     },
+    
     {
       field: "class",
       headerName: "Class",
@@ -198,11 +196,11 @@ successMsg("Student record is deleted successfully")
       renderCell: (params) =>
         params.row.isEditing ? (
           <FormInputSelect
-            errors={errors}
+            // errors={errors}
             control={control}
             label="Class"
             options={CollegeClasses}
-            name={`class`}
+            name={`class_${params.row.id}`}
             className="custom-input"
           />
         ) : (
@@ -217,9 +215,8 @@ successMsg("Student record is deleted successfully")
         params.row.isEditing ? (
           <FormDatePicker
             control={control}
-            errors={errors}
             label="Date of Birth"
-            name={`dob`}
+            name={`dob_${params.row.id}`}
             className="custom-input"
           />
         ) : (
@@ -235,10 +232,9 @@ successMsg("Student record is deleted successfully")
         params.row.isEditing ? (
           <InputField
           type="email"
-            errors={errors}
             control={control}
             label="Email"
-            name={`email`}
+            name={`email_${params.row.id}`}
             className="custom-input"
           />
         ) : (
@@ -252,11 +248,10 @@ successMsg("Student record is deleted successfully")
       renderCell: (params) =>
         params.row.isEditing ? (
           <FormInputSelect
-            errors={errors}
             control={control}
             label="Gender"
             options={genderOptions}
-            name={`gender`}
+            name={`gender_${params.row.id}`}
             className="custom-input"
           />
         ) : (
